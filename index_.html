@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stacking Cards on Scroll</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              coffee: '#8B7A5C',
+              coffeeDark: '#5F523B',
+              coffeeDarker: '#4B402E',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-neutral-50 text-slate-900 antialiased">
+    <!-- Intro (optional) -->
+    <header class="max-w-6xl mx-auto px-4 pt-12 pb-4">
+      <p class="text-xs tracking-[0.2em] text-amber-800 font-semibold">OUR CULTURE</p>
+      <h1 class="mt-2 text-4xl md:text-5xl font-light">One <span class="italic text-amber-700 font-serif">Bourbon</span></h1>
+      <p class="mt-4 text-slate-600 max-w-2xl">We believe everyone deserves remarkable coffees.</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
+        <!-- Left column: image -->
+        <div class="relative lg:sticky lg:top-24 self-start order-2 lg:order-1">
+          <img
+            class="w-full h-[40vh] sm:h-[50vh] lg:h-[65vh] object-cover  shadow-lg lg:shadow-xl"
+            src="https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?q=80&w=1800&auto=format&fit=crop"
+            alt="Dummy placeholder"
+          />
+        </div>
+
+        <!-- Right column: stacking cards -->
+        <div class="relative order-1 lg:order-2">
+          <!-- Mobile: stacked cards with spacing -->
+          <div class="space-y-6 lg:hidden">
+            <div class="bg-coffee text-white shadow-lg border border-white/10 p-6 sm:p-8">
+              <div class="flex items-center gap-3 text-white/90">
+                <span class="text-xl sm:text-2xl">⚙️</span>
+                <h2 class="text-xl sm:text-2xl font-semibold">Mission</h2>
+              </div>
+              <div class="mt-3 h-0.5 w-8 sm:w-10 bg-white/40"></div>
+              <p class="mt-4 text-white/90 leading-relaxed text-sm sm:text-base">
+                To promote the best Brazilian coffee experiences to the world, delivering
+                quality, excellence, consistency, and sustainability, with love and tradition.
+              </p>
+            </div>
+
+            <div class="bg-coffeeDark text-white shadow-lg border border-white/10 p-6 sm:p-8">
+              <div class="flex items-center gap-3 text-white/90">
+                <span class="text-xl sm:text-2xl">💡</span>
+                <h2 class="text-xl sm:text-2xl font-semibold">Vision</h2>
+              </div>
+              <div class="mt-3 h-0.5 w-8 sm:w-10 bg-white/40"></div>
+              <p class="mt-4 text-white/90 leading-relaxed text-sm sm:text-base">
+                To seek global recognition in the specialty coffee market through innovation,
+                development, continuous growth, and solid partnerships.
+              </p>
+            </div>
+
+            <div class="bg-coffeeDarker text-white  shadow-lg border border-white/10 p-6 sm:p-8">
+              <div class="flex items-center gap-3 text-white/90">
+                <span class="text-xl sm:text-2xl">💎</span>
+                <h2 class="text-xl sm:text-2xl font-semibold">Values</h2>
+              </div>
+              <div class="mt-3 h-0.5 w-8 sm:w-10 bg-white/40"></div>
+              <p class="mt-4 text-white/90 leading-relaxed text-sm sm:text-base">
+                To seek global recognition in the specialty coffee market through innovation,
+                development, continuous growth, and solid partnerships.
+              </p>
+            </div>
+          </div>
+
+          <!-- Desktop: stacking cards with sticky effect -->
+          <div class="hidden lg:block">
+            <div class="relative">
+              <!-- Mission Card -->
+              <div class="sticky top-24 z-10 bg-coffee text-white shadow-2xl border border-white/10 p-8 md:p-10 mb-8 mt-0">
+                <div class="flex items-center gap-3 text-white/90">
+                  <span class="text-2xl">⚙️</span>
+                  <h2 class="text-2xl md:text-3xl font-semibold">Mission</h2>
+                </div>
+                <div class="mt-4 h-0.5 w-10 bg-white/40"></div>
+                <p class="mt-5 text-white/90 leading-relaxed">
+                  To promote the best Brazilian coffee experiences to the world, delivering
+                  quality, excellence, consistency, and sustainability, with love and tradition.
+                </p>
+              </div>
+              
+              <!-- Vision Card -->
+              <div class="sticky top-24 z-20 bg-coffeeDark text-white shadow-2xl border border-white/10 p-8 md:p-10 mb-8 mt-16">
+                <div class="flex items-center gap-3 text-white/90">
+                  <span class="text-2xl">💡</span>
+                  <h2 class="text-2xl md:text-3xl font-semibold">Vision</h2>
+                </div>
+                <div class="mt-4 h-0.5 w-10 bg-white/40"></div>
+                <p class="mt-5 text-white/90 leading-relaxed">
+                  To seek global recognition in the specialty coffee market through innovation,
+                  development, continuous growth, and solid partnerships.
+                </p>
+              </div>
+              
+              <!-- Values Card -->
+              <div class="sticky top-24 z-30 bg-coffeeDarker text-white shadow-2xl border border-white/10 p-8 md:p-10 mt-32">
+                <div class="flex items-center gap-3 text-white/90">
+                  <span class="text-2xl">💎</span>
+                  <h2 class="text-2xl md:text-3xl font-semibold">Values</h2>
+                </div>
+                <div class="mt-4 h-0.5 w-10 bg-white/40"></div>
+                <p class="mt-5 text-white/90 leading-relaxed">
+                  Unity, Respect, Innovation, Excellence, Integrity, Determination.
+                </p>
+                <p class="mt-4 text-white/90 leading-relaxed">
+                  These core principles guide every decision we make, from sourcing the finest beans to delivering exceptional customer experiences. We believe that success comes from staying true to these values while continuously evolving and improving our craft.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- New Section -->
+    <section class="w-full mx-auto p-20 pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
+        <!-- Left column: content -->
+        <div class="relative lg:sticky lg:top-24 self-start order-2 lg:order-1">
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-800 mb-4">
+                Our Heritage
+              </h2>
+              <div class="h-1 w-16 bg-amber-600 "></div>
+            </div>
+            
+            <div class="space-y-4 text-slate-700">
+              <p class="text-sm sm:text-base lg:text-lg leading-relaxed">
+                For generations, we've been crafting exceptional coffee experiences that connect people across cultures and continents. Our journey began in the heart of Brazil's coffee regions, where tradition meets innovation.
+              </p>
+              
+              <p class="text-sm sm:text-base lg:text-lg leading-relaxed">
+                Every bean tells a story of dedication, from the careful cultivation in our partner farms to the meticulous roasting process that brings out the unique character of each origin.
+              </p>
+              
+              <div class="flex items-center gap-3 pt-4">
+                <span class="text-2xl">🌱</span>
+                <span class="text-sm sm:text-base font-medium text-amber-700">Sustainable Farming</span>
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">🔥</span>
+                <span class="text-sm sm:text-base font-medium text-amber-700">Artisan Roasting</span>
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">🌍</span>
+                <span class="text-sm sm:text-base font-medium text-amber-700">Global Community</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: SVG -->
+        <div class="relative order-1 lg:order-2">
+          <!-- SVG Container - Replace with your complete SVG -->
+          <div class="text-center">
+            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-800 mb-4">
+              Coffee Journey Map
+            </h3>
+            <p class="text-sm text-slate-600 mb-6">
+              Interactive visualization of our coffee origins and journey
+            </p>
+            
+            <!-- You can paste your complete SVG here -->
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="720" height="672" viewBox="0 0 720 672" fill="none">
+              ... your complete SVG content ...
+            </svg> -->
+            <img src="./ethiopia.png" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

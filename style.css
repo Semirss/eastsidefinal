@@ -1,0 +1,581 @@
+/* Custom font import from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Nunito:wght@400;700&display=swap');
+
+/* Set Nunito for body content */
+body {
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Use DM Sans for titles/headings */
+h1, h2, h3, h4, h5, h6, .feature-title, .image-overlay h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #3b82f6; /* Blue */
+    border-radius: 3px;
+}
+
+/* Hero section background image with full screen height */
+.hero-background {
+    background-image: url('pictures/cfeebg3.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Custom image container for the coffee products section */
+.coffee-image-container {
+    position: relative;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 1024px) {
+    .coffee-image-container {
+        border-radius: 80px;
+        clip-path: ellipse(50% 50% at 50% 50%);
+    }
+}
+.since-2017-circle {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    transform: translateX(-350%);
+    background: #fff;
+    border-radius: 9999px; /* rounded-full */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom styles for the numbered circles in the coffee bean section */
+.numbered-circle {
+    background-color: #a06000; /* Tailwind's blue-500 */
+    color: white;
+    width: 28px;
+    transform: translateX(-150%);
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: -2.25rem;
+    font-size: 0.75rem;
+}
+
+/* Custom styling for the gallery section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+    .gallery-item-1 { grid-column: 1 / span 1; grid-row: 1 / span 1; }
+    .gallery-item-2 { grid-column: 2 / span 1; grid-row: 1 / span 1; }
+    .gallery-item-3 { grid-column: 1 / span 1; grid-row: 2 / span 1; }
+    .gallery-item-4 { grid-column: 2 / span 1; grid-row: 2 / span 1; }
+    .gallery-item-5 { grid-column: 3 / span 1; grid-row: 1 / span 2; }
+}
+
+/* Enhanced hero section */
+.hero-content {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+}
+@media (min-width: 300px) {
+    .hero-content {
+        padding-top: 8rem;
+        padding-bottom: 16rem;
+        padding-left: 4px;
+    }
+}
+@media (min-width: 1024px) {
+    .hero-content {
+        padding-top: 8rem;
+        padding-bottom: 16rem;
+        padding-left: 2rem;
+    }
+}
+
+.clip-curved {
+    clip-path: url(#custom-shape);
+}
+
+/* Compact radial features section */
+.radial-features-container {
+    position: relative;
+    padding: 2rem 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.radial-center-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+}
+
+@media (min-width: 768px) {
+    .radial-center-image {
+        width: 250px;
+        height: 350px;
+    }
+}
+@media (min-width: 300px) {
+    .radial-center-image {
+        width: 310px;
+        height: 360px;
+    }
+    .feature-box {
+        padding: 10px;
+    }
+}
+
+.feature-box {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+    .radial-features-container {
+        height: 500px;
+    }
+
+    .radial-center-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        width: 310px;
+        height: 360px;
+        margin: 0;
+        z-index: 10;
+    }
+
+    .feature-box {
+        position: absolute;
+        width: 200px;
+        margin: 0;
+    }
+
+    .feature-1 { top: 10%; left: 5%; }
+    .feature-2 { top: 30%; left: 5%; }
+    .feature-3 { top: 50%; left: 5%; }
+    .feature-4 { top: 10%; right: 5%; }
+    .feature-5 { top: 30%; right: 5%; }
+    .feature-6 { top: 50%; right: 5%; }
+}
+
+@media (min-width: 1280px) {
+    .feature-1 { top: 5%; left: 0; }
+    .feature-2 { top: 30%; left: 0; }
+    .feature-3 { top: 55%; left: 0; }
+    .feature-4 { top: 5%; right: 0; }
+    .feature-5 { top: 30%; right: 0; }
+    .feature-6 { top: 55%; right: 0; }
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: hsl(114, 65%, 91%);
+    color: #058f10;
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #1F2937;
+    margin-bottom: 0.35rem;
+}
+
+.feature-description {
+    font-size: 0.65rem;
+    color: #6B7280;
+}
+
+/* Custom grid for gallery to handle responsiveness */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Default to single column on small screens */
+    gap: 1rem; /* Gap between grid items */
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+    .gallery-grid {
+        grid-template-columns: repeat(1, 1fr); /* Still 1 column on small screens for maximum size */
+    }
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns on medium screens for bigger images */
+    }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns on large screens for even bigger images */
+    }
+}
+@media (min-width: 1280px) { /* xl breakpoint */
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on extra-large screens */
+    }
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem; 
+    aspect-ratio: 4/4;
+    cursor: pointer; 
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: center; /* Ensure images cover the container */
+    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+.image-container:hover img {
+    transform: scale(1.05); /* Slightly zoom in on hover */
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent black overlay */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    padding: 1.5rem; /* Padding from the bottom */
+    text-align: center;
+    border-radius: 0.5rem; /* Match parent border-radius */
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay h3 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem; /* text-xl */
+}
+
+.image-overlay p {
+    font-size: 0.875rem; /* text-sm */
+}
+
+/* Active navigation link styling */
+.nav-link.active {
+    font-weight: bold;
+    color: #10B981; /* Tailwind's teal-500 */
+    border-bottom: 2px solid #10B981;
+}
+
+/* Fullscreen Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker overlay for fullscreen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of everything */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image fits within the modal without cropping */
+    border-radius: 0.5rem;
+}
+
+.modal-close-button {
+    position: absolute;
+    background: none;
+    
+    border: 1px solid rgba(27, 26, 26, 0.5);
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+    z-index: 1001; /* Ensure it's above the image */
+}
+
+.modal-close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Transition classes for gallery items */
+.image-container.fade-out {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px); /* Shrink and move down slightly */
+}
+
+/* Initial state for new images before they fade in */
+.image-container.fade-in-initial {
+    opacity: 0;
+    transform: scale(0.8) translateY(-30px); /* Start smaller and higher */
+}
+
+.contact{
+    background-color: #a06000;
+}
+.cbutton{
+    background-color: #06be43;
+}
+/* Custom clip-path for the curved image */
+.clip-curved {
+    clip-path: url(#custom-shape);
+}
+
+/* CSS for the text expansion */
+#expandedTextContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+#expandedTextContent.show-text {
+    max-height: 1000px; /* Increased to ensure all content is visible */
+    opacity: 1;
+}
+/* Custom styling for the call to action button */
+.cta-button {
+    background: #ce7d04;
+    transition: all 0.3s ease-in-out;
+}
+.cta-button:hover {
+    background:#339c09;
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+#contact {
+    background-color: #1a202c; /* A deep, rich color */
+    position: relative;
+    margin: 2rem; /* Added margin around the section */
+    border-radius: 1rem; /* Added rounded corners to the section */
+    overflow: hidden;
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://placehold.co/1920x1080/1a202c/FFFFFF?text=Coffee+Beans') no-repeat center center/cover;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
+    max-width: 100%; /* Constrained the content width */
+    margin: 0 auto; /* Centered the content */
+    padding: 4rem 1rem; /* Adjusted padding for a more compact feel */
+}
+
+.cta-button {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ /* Chatbot specific styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 330px;
+            height: 500px;
+            background-color: #FFFFFF; /* Pure White */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            transform: translateY(100%) scale(0.8);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            transform-origin: bottom right;
+        }
+        .chatbot-container.open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #D0E7E5; /* Pale Aqua - Chat background */
+            border-bottom: 1px solid #A2C0D2; /* Powder Blue */
+        }
+        .message {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .message.user {
+            justify-content: flex-end;
+        }
+        .message.bot {
+            justify-content: flex-start;
+        }
+        .message-bubble {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        .message.user .message-bubble {
+            background-color: #1ac260; /* Soft Teal */
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .message.bot .message-bubble {
+            background-color: #A2C0D2; /* Powder Blue */
+            color: #3A3E56; /* Slate Navy */
+            border-bottom-left-radius: 4px;
+        }
+        .chat-input-area {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #A2C0D2; /* Powder Blue */
+            background-color: #FFFFFF; /* Pure White */
+        }
+        .chat-input-area input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #A2C0D2; /* Powder Blue */
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+            margin-right: 10px;
+            color: #3A3E56; /* Slate Navy */
+        }
+        .chat-input-area button {
+            background-color: #f79b45; /* Soft Teal */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .chat-input-area button:hover {
+            background-color: #35e75b; /* Slate Navy */
+        }
+        .loading-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #85B8B2; /* Soft Teal */
+            border-radius: 50%;
+            margin: 0 4px;
+            animation: bounce 0.6s infinite alternate;
+        }
+        .loading-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loading-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-5px);
+            }
+        }
