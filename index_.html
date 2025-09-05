@@ -1,194 +1,1017 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Stacking Cards on Scroll</title>
-
-    <!-- Tailwind CSS CDN -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EastSide Agro Industry</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              coffee: '#8B7A5C',
-              coffeeDark: '#5F523B',
-              coffeeDarker: '#4B402E',
-            },
-          },
-        },
-      };
-    </script>
-  </head>
-  <body class="bg-neutral-50 text-slate-900 antialiased">
-    <!-- Intro (optional) -->
-    <header class="max-w-6xl mx-auto px-4 pt-12 pb-4">
-      <p class="text-xs tracking-[0.2em] text-amber-800 font-semibold">OUR CULTURE</p>
-      <h1 class="mt-2 text-4xl md:text-5xl font-light">One <span class="italic text-amber-700 font-serif">Bourbon</span></h1>
-      <p class="mt-4 text-slate-600 max-w-2xl">We believe everyone deserves remarkable coffees.</p>
-    </header>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./pictures/Eastside site.png">
+</head>
+<style>
+    
+    section {
+        margin: 0.25rem !important;
+        border-radius: 0.5rem !important;
+    }
+    :root {
+        --color-primary: #10b981;
+        --color-secondary: #f0cb93;
+        --color-dark: #1e293b;
+        --color-light: #f8fafc;
+        --text-xs: 0.75rem;   /* 12px */
+        --text-sm: 0.875rem;  /* 14px */
+        --text-base: 1rem;    /* 16px */
+        --text-lg: 1.125rem;  /* 18px */
+        --text-xl: 1.25rem;   /* 20px */
+        --text-2xl: 1.5rem;    /* 24px */
+        --text-3xl: 1.875rem;  /* 30px */
+        --text-4xl: 2.25rem;   /* 36px */
+        --text-5xl: 3rem;      /* 48px */
+        --text-6xl: 3.75rem;   /* 60px */
+        
+        /* Coffee Colors */
+        --coffee-light: #6F4E37;
+        --coffee-medium: #5D4037;
+        --coffee-dark: #4E342E;
+        --accent-amber: #D97706;
+    }
 
-    <main class="max-w-6xl mx-auto px-4 pb-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-        <!-- Left column: image -->
-        <div class="relative lg:sticky lg:top-24 self-start order-2 lg:order-1">
-          <img
-            class="w-full h-[40vh] sm:h-[50vh] lg:h-[65vh] object-cover  shadow-lg lg:shadow-xl"
-            src="https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?q=80&w=1800&auto=format&fit=crop"
-            alt="Dummy placeholder"
-          />
+    body {
+        font-family: 'Oxanium', sans-serif;
+        color: var(--color-dark);
+        overflow-x: hidden;
+        font-size: var(--text-xl);
+        line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .font-title {
+        font-family: 'Jockey One', sans-serif;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    h1 { font-size: var(--text-4xl); }
+    h2 { font-size: var(--text-3xl); }
+    h3 { font-size: var(--text-2xl); }
+    h4 { font-size: var(--text-xl); }
+    p { font-size: var(--text-base); }
+
+    /* Small text elements */
+    .text-xs { font-size: var(--text-xs); }
+    .text-sm { font-size: var(--text-sm); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #000000;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #3b82f6;
+        border-radius: 3px;
+    }
+
+    /* Hero Section */
+    .hero-background {
+        background-image: url('./pictures/landing_page.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-title {
+        font-size: var(--text-4xl);
+        color: white;
+    }
+
+    .hero-moto {
+        font-size: var(--text-xl);
+        color: var(--color-secondary);
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+    
+    .hero-subtitle {
+        color: var(--color-light);
+        max-width: 40rem;
+        font-size: var(--text-base);
+    }
+
+    /* Navigation */
+    .nav-bg {
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(5px);
+    }
+    
+    .nav-link {
+        font-size: var(--text-sm);
+    }
+    
+    .nav-link:hover {
+        color: var(--color-primary);
+    }
+
+    /* About Section */
+    .clip-curved {
+        clip-path: url(#custom-shape);
+    }
+
+    .since-badge {
+        position: absolute;
+        top: 1rem;
+        left: 2rem;
+        z-index: 10;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px dashed var(--color-primary);
+        font-size: var(--text-sm);
+    }
+
+    /* Products Section */
+    .numbered-circle {
+        background-color: var(--color-primary);
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: var(--text-xs);
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+
+    .image-container {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out;
+        border-radius: 0.5rem;
+        aspect-ratio: 1/1;
+    }
+
+    .image-container img {
+        transition: transform 0.3s ease-in-out;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .image-overlay h3 {
+        font-size: var(--text-xl);
+        font-weight: bold;
+    }
+
+    .image-overlay p {
+        font-size: var(--text-sm);
+    }
+
+    /* Contact Section */
+    #contact {
+        background-color: var(--color-dark);
+        position: relative;
+    }
+    
+    #contact::before {
+        background-image: url('./pictures/cfeebg3.webp');
+        opacity: 0.1;
+    }
+
+    /* Footer */
+    .footer-bg {
+        background-color: #0f172a;
+    }
+    
+    .footer-link {
+        font-size: var(--text-sm);
+    }
+    
+    .footer-link:hover {
+        color: var(--color-primary);
+    }
+
+    /* Buttons */
+    .button, button {
+        font-size: var(--text-sm);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-button {
+        transition: all 0.3s ease-in-out;
+        border-width: 2px;
+        border-color: white;
+    }
+
+    .contact-button {
+        background-color: var(--color-primary);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .contact-button:hover {
+        background-color: #059669;
+    }
+
+    .cta-button {
+        background-color: var(--color-primary);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+        transform: scale(1.05);
+        background-color: #059669;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .modal-caption {
+        color: white;
+        text-align: center;
+        margin-top: 1rem;
+        font-size: var(--text-base);
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0) translateX(-50%);
+        }
+        40% {
+            transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+            transform: translateY(-10px) translateX(-50%);
+        }
+    }
+    
+    /* Animation classes */
+    .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    
+    .animate-fade-in-delay {
+        animation: fadeInUp 1s ease-out 0.3s forwards;
+        opacity: 0;
+    }
+    
+    .animate-fade-in-delay-2 {
+        animation: fadeInUp 1s ease-out 0.6s forwards;
+        opacity: 0;
+    }
+    
+    .animate-fade-in-delay-3 {
+        animation: fadeInUp 1s ease-out 0.9s forwards;
+        opacity: 0;
+    }
+    
+    .animate-bounce {
+        animation: bounce 2s infinite;
+    }
+
+    /* Add gradient transition effect */
+    .nav-gradient-transition {
+        transition: background 0.5s ease;
+    }
+    
+    .bg-custom-gradient {
+        background: linear-gradient(135deg, #122011c6, #122011c6);
+    }
+    
+    /* Make sure the navbar has the transition class */
+    #nav-rectangle {
+        transition: background 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    /* Coffee Colors */
+    .bg-coffee {
+        background-color: var(--coffee-light);
+    }
+
+    .bg-coffee-dark {
+        background-color: var(--coffee-medium);
+    }
+
+    .bg-coffee-darker {
+        background-color: var(--coffee-dark);
+    }
+
+    .text-amber {
+        color: var(--accent-amber);
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+        h1 { font-size: var(--text-5xl); }
+        h2 { font-size: var(--text-4xl); }
+        .hero-title { font-size: var(--text-5xl); }
+        .hero-moto { font-size: var(--text-2xl); }
+    }
+
+    @media (min-width: 1024px) {
+        h1 { font-size: var(--text-6xl); }
+        .hero-title { font-size: var(--text-6xl); }
+    }
+
+    @media (max-width: 640px) {
+        .hero-background {
+            background-position: 65% center;
+        }
+        
+        /* Mobile navigation adjustments */
+        .mobile-menu {
+            display: none;
+        }
+        
+        /* About section mobile layout */
+        #about .grid {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Products grid mobile layout */
+        #products .grid {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Gallery mobile layout */
+        #gallery .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        /* Footer mobile layout */
+        footer .grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        /* Contact section mobile layout */
+        #contacts .flex {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        /* General padding adjustments for mobile */
+        section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+  .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+          .bg-gray-150 {
+            background-color: #f7f7f7; 
+        }
+        /* Custom dark gray for modal backdrop */
+        .bg-gray-550 {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</style>
+<body class="bg-white rounded">
+   <nav class="fixed w-full top-0 left-0 z-50 transition-all duration-300 rounded">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 rounded">
+            <div id="nav-rectangle" class="mt-3 backdrop-blur-xl bg-white/80 rounded w-full max-w-7xl mx-auto transition-colors duration-300">
+                <div class="flex justify-between items-center px-6 py-3">
+                    <div class="flex items-center">
+                        <img src="./pictures/Logo (1).png" alt="EastSide Agro Logo" class="h-16 w-auto object-contain">
+                    </div>
+
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#home" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium" data-nav-key="home">Home</a>
+                        <a href="#about" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium" data-nav-key="about">About</a>
+                        <a href="#products" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium" data-nav-key="products">Products</a>
+                         <a href="#events" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium " data-translation-keyy="events">Events</a>
+
+                        <a href="#contact" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium" data-nav-key="contact">Contact</a>
+
+                        <div class="relative">
+                            <button id="lang-dropdown-btn" class="text-gray-900 hover:text-amber-600 transition-colors text-sm font-medium flex items-center gap-1 focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                                <span id="current-lang-text">English</span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <div id="lang-dropdown-content" class="absolute hidden top-full mt-2 right-0 bg-white shadow-lg rounded-md overflow-hidden z-20 min-w-[120px]">
+                                <a href="#" data-lang="en" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 lang-option">English</a>
+                                <a href="#" data-lang="ar" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 lang-option">العربية</a>
+                                <a href="#" data-lang="zh" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 lang-option">中文</a>
+                                <a href="#" data-lang="am" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 lang-option">አማርኛ</a>
+                                <a href="#" data-lang="tr" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 lang-option">Türkçe</a>
+                                <a href="#" data-lang="fr" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 lang-option">Français</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
+    </nav>
 
-        <!-- Right column: stacking cards -->
-        <div class="relative order-1 lg:order-2">
-          <!-- Mobile: stacked cards with spacing -->
-          <div class="space-y-6 lg:hidden">
-            <div class="bg-coffee text-white shadow-lg border border-white/10 p-6 sm:p-8">
-              <div class="flex items-center gap-3 text-white/90">
-                <span class="text-xl sm:text-2xl">⚙️</span>
-                <h2 class="text-xl sm:text-2xl font-semibold">Mission</h2>
-              </div>
-              <div class="mt-3 h-0.5 w-8 sm:w-10 bg-white/40"></div>
-              <p class="mt-4 text-white/90 leading-relaxed text-sm sm:text-base">
-                To promote the best Brazilian coffee experiences to the world, delivering
-                quality, excellence, consistency, and sustainability, with love and tradition.
-              </p>
-            </div>
-
-            <div class="bg-coffeeDark text-white shadow-lg border border-white/10 p-6 sm:p-8">
-              <div class="flex items-center gap-3 text-white/90">
-                <span class="text-xl sm:text-2xl">💡</span>
-                <h2 class="text-xl sm:text-2xl font-semibold">Vision</h2>
-              </div>
-              <div class="mt-3 h-0.5 w-8 sm:w-10 bg-white/40"></div>
-              <p class="mt-4 text-white/90 leading-relaxed text-sm sm:text-base">
-                To seek global recognition in the specialty coffee market through innovation,
-                development, continuous growth, and solid partnerships.
-              </p>
-            </div>
-
-            <div class="bg-coffeeDarker text-white  shadow-lg border border-white/10 p-6 sm:p-8">
-              <div class="flex items-center gap-3 text-white/90">
-                <span class="text-xl sm:text-2xl">💎</span>
-                <h2 class="text-xl sm:text-2xl font-semibold">Values</h2>
-              </div>
-              <div class="mt-3 h-0.5 w-8 sm:w-10 bg-white/40"></div>
-              <p class="mt-4 text-white/90 leading-relaxed text-sm sm:text-base">
-                To seek global recognition in the specialty coffee market through innovation,
-                development, continuous growth, and solid partnerships.
-              </p>
-            </div>
-          </div>
-
-          <!-- Desktop: stacking cards with sticky effect -->
-          <div class="hidden lg:block">
-            <div class="relative">
-              <!-- Mission Card -->
-              <div class="sticky top-24 z-10 bg-coffee text-white shadow-2xl border border-white/10 p-8 md:p-10 mb-8 mt-0">
-                <div class="flex items-center gap-3 text-white/90">
-                  <span class="text-2xl">⚙️</span>
-                  <h2 class="text-2xl md:text-3xl font-semibold">Mission</h2>
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-black/90 z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <button id="close-mobile-menu-btn" class="absolute top-4 right-4 text-white text-2xl">
+                &times;
+            </button>
+            <div class="mt-8 w-full text-center relative">
+                <button id="mobile-lang-dropdown-btn" class="text-white text-2xl font-medium flex items-center justify-center mx-auto gap-2 focus:outline-none bg-white/10 px-6 py-3 rounded-lg w-48">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span id="mobile-current-lang-text">English</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div id="mobile-lang-dropdown-content" class="absolute hidden top-full mt-4 bg-white/90 shadow-lg rounded-md overflow-y-auto z-20 min-w-[180px] left-1/2 transform -translate-x-1/2 max-h-70">
+                    <a href="#" data-lang="en" class="block px-4 py-3 text-lg text-gray-800 hover:bg-gray-200 mobile-lang-option text-xs">English</a>
+                    <a href="#" data-lang="ar" class="block px-4 py-3 text-lg text-gray-800 hover:bg-gray-200 mobile-lang-option text-xs">العربية</a>
+                    <a href="#" data-lang="zh" class="block px-4 py-3 text-lg text-gray-800 hover:bg-gray-200 mobile-lang-option text-xs">中文</a>
+                    <a href="#" data-lang="am" class="block px-4 py-3 text-lg text-gray-800 hover:bg-gray-200 mobile-lang-option text-xs">አማርኛ</a>
+                    <a href="#" data-lang="tr" class="block px-4 py-3 text-lg text-gray-800 hover:bg-gray-200 mobile-lang-option text-xs">Türkçe</a>
+                    <a href="#" data-lang="fr" class="block px-4 py-3 text-lg text-gray-800 hover:bg-gray-200 mobile-lang-option text-xs">Français</a>
                 </div>
-                <div class="mt-4 h-0.5 w-10 bg-white/40"></div>
-                <p class="mt-5 text-white/90 leading-relaxed">
-                  To promote the best Brazilian coffee experiences to the world, delivering
-                  quality, excellence, consistency, and sustainability, with love and tradition.
-                </p>
-              </div>
-              
-              <!-- Vision Card -->
-              <div class="sticky top-24 z-20 bg-coffeeDark text-white shadow-2xl border border-white/10 p-8 md:p-10 mb-8 mt-16">
-                <div class="flex items-center gap-3 text-white/90">
-                  <span class="text-2xl">💡</span>
-                  <h2 class="text-2xl md:text-3xl font-semibold">Vision</h2>
-                </div>
-                <div class="mt-4 h-0.5 w-10 bg-white/40"></div>
-                <p class="mt-5 text-white/90 leading-relaxed">
-                  To seek global recognition in the specialty coffee market through innovation,
-                  development, continuous growth, and solid partnerships.
-                </p>
-              </div>
-              
-              <!-- Values Card -->
-              <div class="sticky top-24 z-30 bg-coffeeDarker text-white shadow-2xl border border-white/10 p-8 md:p-10 mt-32">
-                <div class="flex items-center gap-3 text-white/90">
-                  <span class="text-2xl">💎</span>
-                  <h2 class="text-2xl md:text-3xl font-semibold">Values</h2>
-                </div>
-                <div class="mt-4 h-0.5 w-10 bg-white/40"></div>
-                <p class="mt-5 text-white/90 leading-relaxed">
-                  Unity, Respect, Innovation, Excellence, Integrity, Determination.
-                </p>
-                <p class="mt-4 text-white/90 leading-relaxed">
-                  These core principles guide every decision we make, from sourcing the finest beans to delivering exceptional customer experiences. We believe that success comes from staying true to these values while continuously evolving and improving our craft.
-                </p>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
+            <a href="#home" class="text-white text-2xl font-medium mobile-nav-link" data-nav-key="home">Home</a>
+            <a href="#about" class="text-white text-2xl font-medium mobile-nav-link" data-nav-key="about">About</a>
+            <a href="#products" class="text-white text-2xl font-medium mobile-nav-link" data-nav-key="products">Products</a>
+            <a href="#events" class="text-white text-2xl font-medium mobile-nav-link" data-translation-keyy="events">Events</a>
 
-    <!-- New Section -->
-    <section class="w-full mx-auto p-20 pb-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-        <!-- Left column: content -->
-        <div class="relative lg:sticky lg:top-24 self-start order-2 lg:order-1">
-          <div class="space-y-6">
-            <div>
-              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-800 mb-4">
-                Our Heritage
-              </h2>
-              <div class="h-1 w-16 bg-amber-600 "></div>
-            </div>
+            <a href="#contact" class="text-white text-2xl font-medium mobile-nav-link" data-nav-key="contact">Contact</a>
             
-            <div class="space-y-4 text-slate-700">
-              <p class="text-sm sm:text-base lg:text-lg leading-relaxed">
-                For generations, we've been crafting exceptional coffee experiences that connect people across cultures and continents. Our journey began in the heart of Brazil's coffee regions, where tradition meets innovation.
-              </p>
-              
-              <p class="text-sm sm:text-base lg:text-lg leading-relaxed">
-                Every bean tells a story of dedication, from the careful cultivation in our partner farms to the meticulous roasting process that brings out the unique character of each origin.
-              </p>
-              
-              <div class="flex items-center gap-3 pt-4">
-                <span class="text-2xl">🌱</span>
-                <span class="text-sm sm:text-base font-medium text-amber-700">Sustainable Farming</span>
-              </div>
-              
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">🔥</span>
-                <span class="text-sm sm:text-base font-medium text-amber-700">Artisan Roasting</span>
-              </div>
-              
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">🌍</span>
-                <span class="text-sm sm:text-base font-medium text-amber-700">Global Community</span>
-              </div>
+        </div>
+    </div>
+    
+    <section id="home" class="hero-background relative h-screen w-full flex items-center justify-center p-4">
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center">
+            <div class="text-left max-w-2xl px-4 animate-fade-in-up">
+                <h1 class="hero-title font-bold text-white mb-2" data-translation-key="hero-title">EastSide Agro Industry</h1>
+                <h3 class="hero-moto mb-4 animate-fade-in-delay-2" data-translation-key="hero-moto">We produce Ethiopia's finest Coffee and Spices</h3>
+                <p class="hero-subtitle mb-8 animate-fade-in-delay-3" data-translation-key="hero-description">We are a distinguished agro-processing company operating in Ethiopia. We pride ourselves on producing high-quality coffee and a diverse range of spices.</p>
+                <a href="#about" class="hero-button bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300 inline-block animate-fade-in-delay-2" data-translation-key="learn-more">Learn More</a>
             </div>
-          </div>
         </div>
-
-        <!-- Right column: SVG -->
-        <div class="relative order-1 lg:order-2">
-          <!-- SVG Container - Replace with your complete SVG -->
-          <div class="text-center">
-            <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-800 mb-4">
-              Coffee Journey Map
-            </h3>
-            <p class="text-sm text-slate-600 mb-6">
-              Interactive visualization of our coffee origins and journey
-            </p>
-            
-            <!-- You can paste your complete SVG here -->
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="720" height="672" viewBox="0 0 720 672" fill="none">
-              ... your complete SVG content ...
-            </svg> -->
-            <img src="./ethiopia.png" alt="" srcset="">
-          </div>
-        </div>
-      </div>
     </section>
-  </body>
+
+    <section id="about" class="bg-gray-150 py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-center font-title text-3xl md:text-4xl text-coffee-dark mb-12">About Our Vision</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="./pictures/Agro About us.png" alt="A farmer holding coffee beans" class="w-full h-auto rounded-lg shadow-xl">
+                    <div class="absolute inset-0 bg-white/30 backdrop-blur-sm rounded-lg"></div>
+                    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                        <defs>
+                            <clipPath id="custom-shape">
+                                <path d="M0 0 C50 100, 150 0, 200 100 L200 0 Z" fill="none" stroke="none"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="space-y-6">
+                    <p class="text-base text-gray-600 leading-relaxed" data-translation-key="about-description-1">
+                        At EastSide Agro Industry, our journey is rooted in a deep commitment to quality and sustainability. We are not just producers; we are custodians of a rich agricultural heritage. Our mission is to harness the fertile lands of Ethiopia to bring you products that are not only of the highest quality but also a testament to our ethical and responsible practices.
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed" data-translation-key="about-description-2">
+                        We believe in a future where agriculture coexists in harmony with the environment, and our operations are designed to reflect this. We are dedicated to empowering local communities and ensuring that every bean of coffee and every spice we process contributes positively to the lives of our farmers and the health of our planet.
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed" data-translation-key="about-description-3">
+                        Our vision extends beyond borders. We aim to be a global ambassador of Ethiopian produce, sharing the unique flavors and aromas of our land with the world. Join us in this journey of taste and tradition, and experience the true essence of EastSide Agro Industry.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="font-title text-3xl md:text-4xl text-coffee-dark mb-4" data-translation-key="products-title">Our Products</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12" data-translation-key="products-subtitle">We specialize in a variety of premium agricultural products, each cultivated with care and processed to perfection.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-150 rounded-lg p-6 text-center shadow-lg transform transition duration-300 hover:scale-105">
+                    <img src="./pictures/Cofe.png" alt="Coffee beans" class="w-full h-48 object-cover rounded-md mb-4 mx-auto">
+                    <h3 class="font-title text-2xl text-coffee-darker mb-2" data-translation-key="coffee-title">Coffee</h3>
+                    <p class="text-sm text-gray-600" data-translation-key="coffee-description">Our ethically sourced Ethiopian coffee beans are known for their rich aroma and complex flavor profiles. From the highlands to your cup, we ensure a premium experience.</p>
+                </div>
+                <div class="bg-gray-150 rounded-lg p-6 text-center shadow-lg transform transition duration-300 hover:scale-105">
+                    <img src="./pictures/spice.png" alt="Spices" class="w-full h-48 object-cover rounded-md mb-4 mx-auto">
+                    <h3 class="font-title text-2xl text-coffee-darker mb-2" data-translation-key="spices-title">Spices</h3>
+                    <p class="text-sm text-gray-600" data-translation-key="spices-description">We offer a range of traditional Ethiopian spices like berbere, mitmita, and shiro, all freshly ground to retain their authentic taste and potency.</p>
+                </div>
+                <div class="bg-gray-150 rounded-lg p-6 text-center shadow-lg transform transition duration-300 hover:scale-105">
+                    <img src="./pictures/herbs.png" alt="Herbs" class="w-full h-48 object-cover rounded-md mb-4 mx-auto">
+                    <h3 class="font-title text-2xl text-coffee-darker mb-2" data-translation-key="herbs-title">Herbs</h3>
+                    <p class="text-sm text-gray-600" data-translation-key="herbs-description">Our selection of dried herbs, including basil, oregano, and rosemary, are cultivated using organic methods to deliver pure and intense flavors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-we-work" class="bg-coffee-dark py-16 px-4 text-center text-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-title text-3xl md:text-4xl text-amber mb-4" data-translation-key="how-we-work-title">Our Process</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12" data-translation-key="how-we-work-subtitle">We follow a meticulous process to ensure every product meets our high standards of quality and sustainability.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center">
+                    <div class="numbered-circle mb-4 text-xl">1</div>
+                    <h3 class="font-title text-xl text-amber mb-2" data-translation-key="sourcing-title">Sourcing</h3>
+                    <p class="text-sm text-gray-400" data-translation-key="sourcing-description">We partner with local farmers, ensuring fair trade practices and sustainable farming methods.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="numbered-circle mb-4 text-xl">2</div>
+                    <h3 class="font-title text-xl text-amber mb-2" data-translation-key="processing-title">Processing</h3>
+                    <p class="text-sm text-gray-400" data-translation-key="processing-description">Our state-of-the-art facilities clean, sort, and process the raw materials while preserving their natural quality.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="numbered-circle mb-4 text-xl">3</div>
+                    <h3 class="font-title text-xl text-amber mb-2" data-translation-key="roasting-grinding-title">Roasting & Grinding</h3>
+                    <p class="text-sm text-gray-400" data-translation-key="roasting-grinding-description">For our coffee, we apply precise roasting techniques. Spices are freshly ground to your specifications.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="numbered-circle mb-4 text-xl">4</div>
+                    <h3 class="font-title text-xl text-amber mb-2" data-translation-key="packaging-distribution-title">Packaging & Distribution</h3>
+                    <p class="text-sm text-gray-400" data-translation-key="packaging-distribution-description">We package our products in eco-friendly materials and distribute them to local and international markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-16 px-4 bg-gray-150 text-center">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-title text-3xl md:text-4xl text-coffee-dark mb-4" data-translation-key="gallery-title">Our Gallery</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12" data-translation-key="gallery-subtitle">A glimpse into our operations, our team, and the beautiful products we create.</p>
+
+            <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-8">
+                <button class="gallery-filter-btn bg-coffee-dark text-white px-6 py-2 rounded-full font-semibold text-sm mb-2" data-category="Team" data-translation-key="team">Team</button>
+                <button class="gallery-filter-btn bg-gray-300 text-gray-800 px-6 py-2 rounded-full font-semibold text-sm mb-2" data-category="Products" data-translation-key="products">Products</button>
+                <button class="gallery-filter-btn bg-gray-300 text-gray-800 px-6 py-2 rounded-full font-semibold text-sm mb-2" data-category="Process" data-translation-key="process">Process</button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-container">
+                </div>
+        </div>
+    </section>
+
+    <div id="image-modal" class="modal-overlay">
+        <div class="relative w-11/12 max-w-5xl bg-gray-800 rounded-lg shadow-2xl overflow-hidden p-6">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-white text-3xl opacity-70 hover:opacity-100 transition-opacity focus:outline-none">&times;</button>
+            <div class="flex items-center justify-center h-[70vh] w-full">
+                <img id="modal-image" src="" alt="" class="max-h-full max-w-full object-contain rounded-md shadow-lg">
+            </div>
+            <p id="modal-caption" class="modal-caption"></p>
+            <button id="prev-btn" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl opacity-80 hover:opacity-100 transition-opacity">
+                &lsaquo;
+            </button>
+            <button id="next-btn" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl opacity-80 hover:opacity-100 transition-opacity">
+                &rsaquo;
+            </button>
+        </div>
+    </div>
+    
+     <div id="welcome-modal" class="fixed inset-0 bg-gray-550 flex items-center justify-center z-[1000] hidden">
+        <div class="bg-gray-800 text-white rounded-lg shadow-xl p-8 max-w-lg w-11/12 text-center relative">
+            <button id="close-welcome-modal" class="absolute top-2 right-4 text-white text-2xl font-bold opacity-70 hover:opacity-100">&times;</button>
+            <h2 class="text-3xl font-bold mb-4">Welcome to EastSide Agro Industry</h2>
+            <p class="text-gray-300 mb-6">Discover the rich aroma of our ethically sourced coffee and the authentic taste of our traditional spices. Our products are a tribute to the fertile lands and vibrant heritage of Ethiopia.</p>
+            <p class="text-sm text-gray-400 italic">"Quality from the heart of Ethiopia, delivered to your cup."</p>
+        </div>
+    </div>
+
+    <section id="contact" class="bg-cover bg-center text-white py-16 px-4 relative">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="container mx-auto max-w-6xl relative z-10 text-center">
+            <h2 class="font-title text-3xl md:text-4xl text-amber mb-4" data-translation-key="contact-title">Get in Touch</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12" data-translation-key="contact-subtitle">We would love to hear from you. Whether you have a question, a comment, or a partnership inquiry, our team is ready to assist you.</p>
+
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+                <div class="flex-1 flex flex-col items-center text-center p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-amber-500 mb-4"><path d="M12 18.31A7.99 7.99 0 0 1 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 2.21-1.1 4.2-2.77 5.51L12 18.31zM12 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2z"/></svg>
+                    <h3 class="text-xl font-bold mb-2" data-translation-key="our-location">Our Location</h3>
+                    <p class="text-sm text-gray-300" data-translation-key="location-details">Addis Ababa, Ethiopia</p>
+                </div>
+                <div class="flex-1 flex flex-col items-center text-center p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail text-amber-500 mb-4"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <h3 class="text-xl font-bold mb-2" data-translation-key="email-us">Email Us</h3>
+                    <p class="text-sm text-gray-300" data-translation-key="email-details">info@eastsideagro.com</p>
+                </div>
+                <div class="flex-1 flex flex-col items-center text-center p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone text-amber-500 mb-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 8.67 15.37L3.6 10.3a2 2 0 0 1-.5-2.09A1.9 1.9 0 0 1 5 6.77L9.5 9a.5.5 0 0 0 .5.16L12.3 8.3c.3-.1.6-.14.9-.11l2.5 1.48c.5.3.8.8.8 1.4v2.52a.5.5 0 0 0 .16.5l2.25 4.5a.5.5 0 0 0 .5.24z"/></svg>
+                    <h3 class="text-xl font-bold mb-2" data-translation-key="call-us">Call Us</h3>
+                    <p class="text-sm text-gray-300" data-translation-key="phone-details">+251-912-345-678</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <button id="chatbot-button" class="fixed bottom-6 right-6 z-50 bg-coffee-dark text-white rounded-full p-4 shadow-xl hover:bg-coffee-darker transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-coffee-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-code"><path d="M7.9 20A9.39 9.39 0 0 1 12 18c1.68 0 3.32.2 4.9.6a2 2 0 0 0 2.22-1.63L21.4 7.23a2 2 0 0 0-1.07-2.11L12.8 2.14a2 2 0 0 0-2.11 1.07L7.67 7.6a2 2 0 0 0-1.63 2.22A9.39 9.39 0 0 1 4 12c0 3.32.8 6.64 2.3 9.4A2 2 0 0 0 7.9 20Z"/><path d="m10 13-2 2 2 2"/><path d="m14 13 2 2-2 2"/></svg>
+</button>
+<div id="chatbot-modal" class="hidden fixed inset-0 z-[1000] flex items-end justify-end">
+    <div class="relative flex flex-col w-full max-w-sm md:max-w-md h-full md:h-[80vh] m-4 bg-white rounded-lg shadow-2xl overflow-hidden">
+        <div class="flex items-center justify-between p-4 bg-coffee-dark text-white shadow-md">
+            <h3 class="text-lg font-bold">EastSide Agro Chatbot</h3>
+            <button id="close-chatbot-btn" class="text-white text-2xl font-bold opacity-70 hover:opacity-100 transition-opacity">&times;</button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-100">
+            </div>
+        <div class="p-4 bg-white border-t border-gray-200">
+            <div class="relative">
+                <input id="chat-input" type="text" placeholder="Type your message..." class="w-full pl-4 pr-12 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-coffee-dark">
+                <button id="send-button" class="absolute inset-y-0 right-0 flex items-center pr-4 text-coffee-dark hover:text-coffee-darker">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="m22 2-7 19-3-5-5-3 19-7z"/><path d="M22 2 11 13"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer class="footer-bg text-white py-12 px-4">
+        <div class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+                <img src="./pictures/Logo (1).png" alt="EastSide Agro Logo" class="h-24 w-auto object-contain mb-4">
+                <p class="text-sm text-gray-400">© 2024 EastSide Agro Industry. All Rights Reserved.</p>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="font-bold text-lg text-amber-500 mb-4" data-translation-key="quick-links">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="footer-link text-gray-300 hover:text-amber-600 transition-colors" data-nav-key="home">Home</a></li>
+                    <li><a href="#about" class="footer-link text-gray-300 hover:text-amber-600 transition-colors" data-nav-key="about">About</a></li>
+                    <li><a href="#products" class="footer-link text-gray-300 hover:text-amber-600 transition-colors" data-nav-key="products">Products</a></li>
+                    <li><a href="#events" class="footer-link text-gray-300 hover:text-amber-600 transition-colors" data-translation-keyy="events">Events</a></li>
+
+                    <li><a href="#contact" class="footer-link text-gray-300 hover:text-amber-600 transition-colors" data-nav-key="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="font-bold text-lg text-amber-500 mb-4" data-translation-key="contact-info">Contact Info</h4>
+                <p class="text-sm text-gray-300 mb-2"><strong>Email:</strong> info@eastsideagro.com</p>
+                <p class="text-sm text-gray-300 mb-2"><strong>Phone:</strong> +251-912-345-678</p>
+                <p class="text-sm text-gray-300"><strong>Address:</strong> Addis Ababa, Ethiopia</p>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="font-bold text-lg text-amber-500 mb-4" data-translation-key="follow-us">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-amber-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-amber-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-twitter"><path d="M22 4s-2 1-3.5 1.5c-.71 0-1.42-.1-2.12-.3-.55-.15-1.12-.2-1.68-.2-1.8 0-3.56.9-4.8 2.4-1.24 1.5-1.9 3.4-1.9 5.5s.66 4 1.9 5.5c1.24 1.5 2.9 2.4 4.8 2.4s3.56-.9 4.8-2.4c1.24-1.5 1.9-3.4 1.9-5.5v-1c1.5-.7 2.8-1.5 4-2.4l-1-1zm-13.5 6c0 2 1.5 3.5 3.5 3.5s3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5-3.5 1.5-3.5 3.5z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-amber-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-4.75-3.72A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-amber-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-linkedin"><path d="M16 4a2 2 0 0 0 2-2h-2a2 2 0 0 0-2 2zM6 4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2h2zM12 2a2 2 0 0 0-2 2h4a2 2 0 0 0-2-2z"/><path d="M4 6h16v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Automatically show the welcome modal on page load
+        const welcomeModal = document.getElementById('welcome-modal');
+        if (welcomeModal) {
+            setTimeout(() => {
+                welcomeModal.classList.remove('hidden');
+                welcomeModal.classList.add('flex');
+            }, 1000); // 1-second delay
+        }
+
+        // Close welcome modal when the close button is clicked
+        const closeWelcomeModalBtn = document.getElementById('close-welcome-modal');
+        if (closeWelcomeModalBtn) {
+            closeWelcomeModalBtn.addEventListener('click', () => {
+                welcomeModal.classList.add('hidden');
+                welcomeModal.classList.remove('flex');
+            });
+        }
+    });
+
+    const galleryData = {
+        "Team": [
+            { "src": "./pictures/gallery/team1.jpeg", "caption": "Our dedicated team harvesting coffee beans." },
+            { "src": "./pictures/gallery/team2.jpeg", "caption": "The farmers behind our premium products." },
+            { "src": "./pictures/gallery/team3.jpeg", "caption": "Our quality assurance team at work." },
+            { "src": "./pictures/gallery/team4.jpeg", "caption": "A moment of collaboration and a shared vision." }
+        ],
+        "Products": [
+            { "src": "./pictures/gallery/products1.jpg", "caption": "A variety of our freshly ground spices." },
+            { "src": "./pictures/gallery/products2.jpeg", "caption": "Unprocessed coffee cherries, fresh from the farm." },
+            { "src": "./pictures/gallery/products3.jpg", "caption": "Our signature berbere spice blend." },
+            { "src": "./pictures/gallery/products4.jpg", "caption": "Hand-sorted coffee beans ready for roasting." }
+        ],
+        "Process": [
+            { "src": "./pictures/gallery/process1.jpg", "caption": "Washing and sorting coffee beans." },
+            { "src": "./pictures/gallery/process2.jpeg", "caption": "Sun-drying coffee beans on traditional beds." },
+            { "src": "./pictures/gallery/process3.jpg", "caption": "Grinding spices in our facility." },
+            { "src": "./pictures/gallery/process4.jpg", "caption": "Quality inspection of packaged spices." }
+        ]
+    };
+
+    let currentCategory = 'Team';
+    let currentIndex = 0;
+    
+    // Get DOM elements for the gallery and modal
+    const galleryContainer = document.getElementById('gallery-container');
+    const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalCaption = document.getElementById('modal-caption');
+    const closeModalButton = document.getElementById('close-modal-btn');
+    const prevButton = document.getElementById('prev-btn');
+    const nextButton = document.getElementById('next-btn');
+    
+    // Function to render the gallery based on the selected category
+    function renderGallery(category) {
+        galleryContainer.innerHTML = ''; // Clear previous images
+        currentCategory = category;
+        const images = galleryData[category];
+        
+        images.forEach((image, index) => {
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container shadow-lg relative';
+            imageContainer.setAttribute('data-index', index);
+            imageContainer.innerHTML = `
+                <img src="${image.src}" alt="${image.caption}" class="w-full h-full object-cover rounded-md">
+                <div class="image-overlay rounded-md">
+                    <h3 class="font-title">${category} - ${index + 1}</h3>
+                    <p class="text-xs mt-2 text-center max-w-[80%]">${image.caption}</p>
+                </div>
+            `;
+            
+            imageContainer.addEventListener('click', () => {
+                showModal(index);
+            });
+            galleryContainer.appendChild(imageContainer);
+        });
+    }
+
+    // Function to show the modal with the selected image
+    function showModal(index) {
+        currentIndex = index;
+        const currentImage = galleryData[currentCategory][currentIndex];
+        modalImage.src = currentImage.src;
+        modalImage.alt = currentImage.caption;
+        modalCaption.textContent = currentImage.caption;
+        imageModal.classList.add('visible');
+        imageModal.style.opacity = '1';
+        imageModal.style.visibility = 'visible';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        imageModal.classList.remove('visible');
+        imageModal.style.opacity = '0';
+        imageModal.style.visibility = 'hidden';
+    }
+    
+    // Function to show the previous image
+    function showPrevImage() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : galleryData[currentCategory].length - 1;
+        showModal(currentIndex);
+    }
+    
+    // Function to show the next image
+    function showNextImage() {
+        currentIndex = (currentIndex < galleryData[currentCategory].length - 1) ? currentIndex + 1 : 0;
+        showModal(currentIndex);
+    }
+    
+    // Add event listeners for the filter buttons
+    galleryFilterBtns.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Remove active class from all buttons
+            galleryFilterBtns.forEach(btn => {
+                btn.classList.remove('bg-coffee-dark', 'text-white');
+                btn.classList.add('bg-gray-300', 'text-gray-800');
+            });
+            // Add active class to the clicked button
+            event.target.classList.add('bg-coffee-dark', 'text-white');
+            event.target.classList.remove('bg-gray-300', 'text-gray-800');
+            
+            const category = event.target.getAttribute('data-category');
+            renderGallery(category);
+        });
+    });
+
+    // Add event listeners for the modal's closing elements
+    closeModalButton.addEventListener('click', closeModal);
+    imageModal.addEventListener('click', (event) => {
+        // Close modal only if clicking on the background overlay itself
+        if (event.target === imageModal) {
+            closeModal();
+        }
+    });
+
+    // Event listeners for the modal's navigation buttons
+    prevButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent modal from closing when clicking button
+        showPrevImage();
+    });
+
+    nextButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent modal from closing when clicking button
+        showNextImage();
+    });
+
+    // Keyboard navigation for the modal
+    document.addEventListener('keydown', (event) => {
+        if (imageModal.classList.contains('visible')) {
+            if (event.key === 'ArrowLeft') {
+                showPrevImage();
+            } else if (event.key === 'ArrowRight') {
+                showNextImage();
+            } else if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+    });
+
+    // Initial render of the 'Team' category when the page loads
+    renderGallery('Team');
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100, // Adjust this value if you have a fixed header
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Navigation bar background change on scroll
+    window.addEventListener('scroll', function() {
+        const navRectangle = document.getElementById('nav-rectangle');
+        if (window.scrollY > 50) {
+            navRectangle.classList.remove('bg-white/80');
+            navRectangle.classList.add('bg-white/90', 'shadow-lg');
+        } else {
+            navRectangle.classList.remove('bg-white/90', 'shadow-lg');
+            navRectangle.classList.add('bg-white/80');
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+    });
+
+    closeMobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Language dropdown toggles
+    function setupDropdown(buttonId, contentId) {
+        const button = document.getElementById(buttonId);
+        const content = document.getElementById(contentId);
+        if (!button || !content) return;
+
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            content.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!button.contains(event.target) && !content.contains(event.target)) {
+                content.classList.add('hidden');
+            }
+        });
+    }
+
+    setupDropdown('lang-dropdown-btn', 'lang-dropdown-content');
+    setupDropdown('mobile-lang-dropdown-btn', 'mobile-lang-dropdown-content');
+
+    // Chatbot functionality
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotModal = document.getElementById('chatbot-modal');
+    const closeChatbotBtn = document.getElementById('close-chatbot-btn');
+    const chatInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-button');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function createChatMessage(text, isUser) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `p-3 rounded-lg max-w-[80%] ${isUser ? 'bg-blue-500 text-white self-end' : 'bg-gray-300 text-gray-800 self-start'}`;
+        messageDiv.textContent = text;
+        return messageDiv;
+    }
+
+    function addMessageToChat(text, isUser) {
+        const messageElement = createChatMessage(text, isUser);
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
+    }
+</script>
+
+<script src="chatbot.js"></script>
+<script src="translation.js"></script>
+</body>
 </html>

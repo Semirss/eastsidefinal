@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EastSide Agro Industry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=Oxanium:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+       <link rel="icon" type="image/png" href="./pictures/Eastside site.png">
+    <style>
+        :root {
+            --coffee-dark: #3E2723;
+            --coffee-medium: #5D4037;
+            --coffee-light: #A1887F;
+            --paper-light: #FBFBF8;
+            --accent-gold: #D4AF37;
+            --accent-green: #10b981;
+        }
+
+        body {
+            /* Updated font */
+            font-family: 'Oxanium', sans-serif;
+            background-color: #2c1e19;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gallery/farm1.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 380px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 620px; /* Slightly increased height for new contact item */
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 20px;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .front {
+            background: linear-gradient(160deg, var(--coffee-dark) 0%, #2a1f1d 100%);
+            color: var(--paper-light);
+            text-align: center;
+            border: 2px solid var(--accent-gold);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .company-name {
+            /* Updated font */
+            font-family: 'Jockey One', sans-serif;
+            font-size: 1.8rem; /* Adjusted font size */
+            font-weight: 400; /* Jockey One is bold by default */
+            color: white;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--coffee-light);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        
+        .flip-hint {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.8rem;
+            color: var(--coffee-light);
+            opacity: 0.8;
+        }
+        
+        .back {
+            background-color: var(--paper-light);
+            transform: rotateY(180deg);
+            color: var(--coffee-dark);
+        }
+
+        .logo-icon {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 2.5rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem; /* Adjusted margin */
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Makes links use parent text color */
+        }
+
+        .contact-item:hover {
+            background-color: rgba(94, 64, 55, 0.08);
+            transform: translateX(5px); /* Adds a little hover effect */
+        }
+
+        .contact-icon {
+            color: var(--coffee-medium);
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-text {
+            flex: 1;
+            font-size: 0.95rem;
+            word-break: break-all; /* Prevents long email/URL from overflowing */
+        }
+
+        .quote-button {
+            margin-top: auto;
+            background-color: var(--accent-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.9rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .quote-button:hover {
+            background-color: #0d9669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .about-section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(94, 64, 55, 0.08);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 400px) {
+            .card {
+                height: 580px;
+            }
+            
+            .company-name {
+                font-size: 1.8rem;
+            }
+            
+            .card-face {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div id="card" class="card">
+            <!-- Front face of the card -->
+            <div class="card-face front">
+                       <img src="./pictures/Logo (1).png" alt="EastSide Agro Logo" class="h-24 w-auto object-contain mb-6">
+                
+                <h1 class="company-name">EastSide Agro-Industrt PLC</h1>
+                <p class="tagline">Premium Ethiopian Coffee Exporters</p>
+                
+                <div class="flip-hint">
+                    <i class="fas fa-rotate-right mr-1"></i> Click to view details
+                </div>
+            </div>
+
+            <!-- Back face of the card -->
+            <div class="card-face back">
+                <h2 class="text-3xl font-bold mb-2" style="font-family: 'Jockey One', sans-serif; font-weight: 400;">EastSide Agro Industry PLC</h2>
+                <p class="text-gray-600 mb-6 text-sm">Exporting Ethiopia's finest coffee since 2016</p>
+                
+                <!-- Contact Item: Owner -->
+                <div class="contact-item">
+                    <i class="contact-icon fas fa-user fa-fw"></i>
+                    <div class="contact-text">
+                        <div class="font-semibold">Bizuhan Abebe</div>
+                        <div class="text-sm text-gray-600">Owner & General Manager</div>
+                    </div>
+                </div>
+                
+                <!-- Contact Item: WhatsApp -->
+                <a href="https://wa.me/251911752727" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="contact-icon fab fa-whatsapp fa-fw"></i>
+                    <div class="contact-text">+251 911 752 727</div>
+                </a>
+                
+                <!-- Contact Item: Phone -->
+                 <a href="tel:+251118722117" class="contact-item">
+                    <i class="contact-icon fas fa-phone fa-fw"></i>
+                    <div class="contact-text">+251 118 722 117</div>
+                </a>
+                
+                <!-- Contact Item: Email -->
+                <a href="mailto:bizuhan@eastsideagroindustry.com" class="contact-item">
+                    <i class="contact-icon fas fa-envelope fa-fw"></i>
+                    <div class="contact-text">bizuhan@eastsideagroindustry.com</div>
+                </a>
+                
+                <!-- Contact Item: Website -->
+                <a href="https://www.eastsideagroindustry.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="contact-icon fas fa-globe fa-fw"></i>
+                    <div class="contact-text">www.eastsideagroindustry.com</div>
+                </a>
+                
+                <a href="mailto:bizuhan@eastsideagroindustry.com" class="quote-button">
+                    <i class="fas fa-comment-dots mr-2"></i> Request a Quote
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+        card.addEventListener('click', function(event) {
+            // This prevents the card from flipping if a link was clicked
+            if (event.target.closest('a')) {
+                return;
+            }
+            card.classList.toggle('flipped');
+        });
+    </script>
+</body>
+</html>
