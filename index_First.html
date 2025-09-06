@@ -590,7 +590,7 @@
     <div class="bg-white/50 text-[var(--color-text-dark)] rounded-xl shadow-2xl overflow-hidden max-w-4xl w-11/12 relative transform transition-all duration-500 ease-in-out scale-95 opacity-0 gradient-border flex flex-col md:flex-row">
         
         <div class="relative w-full md:w-1/2 min-h-64 md:min-h-full flex flex-col gap-4 p-4">
-            <img src="./currentevent/IMG-20250905-WA0003.jpg" alt="Event Image" class="w-full h-full object-cover rounded-lg">
+            <img src="./currentevent/IMG-20250905-WA0003.jpg" alt="Event Image" class="w-full block lg:block sm:hidden h-full object-cover rounded-lg">
             <!-- Video replacing second image -->
             <video src="./currentevent/VID-20250905-WA0001.mp4" class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline></video>
         </div>
@@ -2922,7 +2922,6 @@ function eventModal_updateModalContent(eventType) {
         renderGallery('Team');
     });
 </script>
-
 <script src="chatbot.js"></script>
 <script src="translation.js"></script>
 </body>
