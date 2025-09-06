@@ -86,7 +86,9 @@
 
         // Groq API key rotation setup
         const GROQ_API_KEYS = [
-          
+            "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",
+                    "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",
+            "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",
 
         ];
         const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
