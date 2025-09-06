@@ -585,42 +585,44 @@
          
         </div>
     </div>
- <!-- Upcoming Event Modal -->
-    <!-- <div id="event-modal" class="fixed inset-0 bg-glass flex items-center justify-center z-[1000] hidden">
-        <div class="bg-white/50 text-[var(--color-text-dark)] rounded-xl shadow-2xl overflow-hidden max-w-4xl w-11/12 relative transform transition-all duration-500 ease-in-out scale-95 opacity-0 gradient-border flex flex-col md:flex-row">
-            
-            <div class="relative w-full md:w-1/2 min-h-64 md:min-h-full flex flex-col gap-4 p-4">
-                <img src="./gallery/event2.jpg" alt="Coffee plantation" class="w-full h-full object-cover rounded-lg">
-                <img src="./gallery/event6.jpg" alt="A variety of spices" class="w-full h-full object-cover rounded-lg">
-            </div>
+<!-- Upcoming Event Modal -->
+<div id="event-modal" class="fixed inset-0 bg-glass flex items-center justify-center z-[1000] hidden">
+    <div class="bg-white/50 text-[var(--color-text-dark)] rounded-xl shadow-2xl overflow-hidden max-w-4xl w-11/12 relative transform transition-all duration-500 ease-in-out scale-95 opacity-0 gradient-border flex flex-col md:flex-row">
+        
+        <div class="relative w-full md:w-1/2 min-h-64 md:min-h-full flex flex-col gap-4 p-4">
+            <img src="./currentevent/IMG-20250905-WA0003.jpg" alt="Event Image" class="w-full h-full object-cover rounded-lg">
+            <!-- Video replacing second image -->
+            <video src="./currentevent/VID-20250905-WA0001.mp4" class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline></video>
+        </div>
 
-            <div class="p-8 md:p-12 w-full md:w-1/2 text-center flex flex-col justify-center items-center relative">
-                <button id="close-event-modal" class="absolute top-4 right-5 text-gray-400 hover:text-[var(--color-text-dark)] text-3xl font-bold transition-colors">&times;</button>
+        <div class="p-8 md:p-12 w-full md:w-1/2 text-center flex flex-col justify-center items-center relative">
+            <button id="close-event-modal" class="absolute top-4 right-5 text-gray-400 hover:text-[var(--color-text-dark)] text-3xl font-bold transition-colors">&times;</button>
+            
+            <div class="modal-content2">
+                <h2 data-translation-key="currentEventTitle" class="text-2xl font-bold mb-2"></h2>
+                <p class="text-[var(--color-primary-green)] font-medium mb-4" data-translation-key="currentEventDate"></p>
+                <p data-translation-key="currentEventDesc" class="text-[var(--color-text-dark)] mb-6 text-justify max-w-prose mx-auto"></p>
                 
-                <div class="modal-content2">
-                    <h2 class="text-2xl font-bold mb-2">Upcoming Event: A Taste of Ethiopia</h2>
-                    <p class="text-[var(--color-primary-green)] font-medium mb-4">Saturday, September 6, 2025</p>
-                    <p class="text-[var(--color-text-dark)] mb-6 max-w-prose mx-auto">Experience the vibrant culture and flavors of Ethiopia at our exclusive coffee and spice tasting event. Mark your calendars for a memorable journey!</p>
-                    
-                    <div>
-                        <button id="navigate-to-events" class="bg-green-600 z-50 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center gap-2">
-                            <span>Learn More</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </div>
+                <div>
+                    <button id="navigate-to-events" class="bg-green-600 z-50 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center gap-2">
+                        <span data-translation-key="learnMoreBtn"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
+</div>
+
       <script>
         document.addEventListener("DOMContentLoaded", function() {
             const eventModal = document.getElementById('event-modal');
             const modalContainer = eventModal.querySelector('.transform');
             const closeEventModalBtn = document.getElementById('close-event-modal');
             const navigateToEventsBtn = document.getElementById('navigate-to-events');
-            const eventsSection = document.getElementById('events-section');
+            const eventsSection = document.getElementById('events');
             const animatedElements = eventModal.querySelectorAll('.modal-content > *');
 
             // Function to open the modal
@@ -1577,7 +1579,13 @@ try {
         document.querySelector('[data-translation-key="hubOfAfricaTitle"]').textContent = t.hubOfAfricaTitle;
         document.querySelector('[data-translation-key="hubOfAfricaDesc"]').textContent = t.hubOfAfricaDesc;
         document.querySelector('[data-translation-key="africanFashionCenter"]').textContent = t.africanFashionCenter;
-        
+        document.querySelector('[data-translation-key="africanFashionCenter2"]').textContent = t.africanFashionCenter;
+document.querySelector('[data-translation-key="currentEventTitle"]').textContent = t.currentEventTitle;
+document.querySelector('[data-translation-key="currentEventDesc"]').textContent = t.currentEventDesc;
+document.querySelector('[data-translation-key="learnMoreBtn"]').textContent = t.learnMoreBtn;
+document.querySelector('[data-translation-key="africanFashionCenter"]').textContent = t.africanFashionCenter;
+document.querySelector('[data-translation-key="africanFashionCenter2"]').textContent = t.africanFashionCenter;
+
         document.querySelector('[data-translation-key="lagosFashionWeekTitle"]').textContent = t.lagosFashionWeekTitle;
         document.querySelector('[data-translation-key="lagosFashionWeekDesc"]').textContent = t.lagosFashionWeekDesc;
         document.querySelector('[data-translation-key="lagosNigeria"]').textContent = t.lagosNigeria;
@@ -1682,23 +1690,23 @@ try {
     <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- Card 1 - Highlighted Upcoming Event -->
-        <div class="event-card bg-green-600 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 relative" onclick="eventModal_openModal('hubOfAfrica')">
+        <div class="event-card bg-green-600 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 relative" onclick="eventModal_openModal('currentEvent')">
             <!-- Upcoming Tag -->
             <div class="absolute top-3 left-3 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-md" data-translation-key="upcomingTag">
-                Upcoming
+                current
             </div>
             <!-- Placeholder image for the card -->
-            <img src="./eventspicture/galleryImg00.png" alt="Upcoming Event" class="w-full h-40 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Image+Not+Found';">
+            <img src="/currentevent/IMG-20250905-WA0003.jpg" alt="Upcoming Event" class="w-full h-40 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Image+Not+Found';">
             <div class="p-4">
                 <p class="text-xs text-gray-900 mb-2">2025</p>
                 
-                <h3 class="text-lg text-gray-100 mb-2 font-semibold" data-translation-key="hubOfAfricaTitle"></h3>
+                <h3 class="text-lg text-gray-100 mb-2 font-semibold" data-translation-key="currentEventTitle">IATF2025</h3>
                 <!-- <h3 class="text-lg text-gray-100 mb-2 font-semibold">IATF2025</h3> -->
-                <p class="text-gray-900 mb-4 text-xs leading-relaxed" ></p>
+                <p class="text-gray-900 mb-4 text-xs leading-relaxed" data-translation-key="currentEventDesc">IATF 2025 (Oct 4–10, Algiers, Algeria): Africa’s biggest trade and investment fair, connecting businesses, innovators, and policymakers under the theme “Boosting Intra-African Trade for a Sustainable Future.”</p>
                 <div class="flex justify-between items-center text-xs text-gray-900 border-t border-green-700 pt-3">
                     <div class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
-                        <span data-translation-key="africanFashionCenter">Algiers, Algeria</span>
+                        <span data-translation-key="africanFashionCenter2">Algiers, Algeria</span>
                     </div>
                     <span class="font-bold text-white" data-translation-key="viewDetails">View Details</span>
                 </div>
@@ -1708,11 +1716,11 @@ try {
           <!-- Card 2.1 - Past Event -->
         <div class="event-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 relative" onclick="eventModal_openModal('hubOfAfrica')">
             <!-- Placeholder image for the card -->
-            <img src="./eventspicture/USA2.jpg" alt="Specialty Coffee Association (SCA) Expo" class="w-full h-40 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Image+Not+Found';">
+            <img src="./eventspicture/galleryImg00.png" alt="Specialty Coffee Association (SCA) Expo" class="w-full h-40 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/ffffff?text=Image+Not+Found';">
             <div class="p-4">
                 <p class="text-xs text-gray-500 mb-2">2023</p>
-                <h3 class="text-lg text-gray-800 mb-2 font-semibold" data-translation-key="hubOfAfricaTitle">IATF2025</h3>
-                <p class="text-gray-600 mb-4 text-xs leading-relaxed" data-translation-key="hubOfAfricaDesc">IATF2025, the 4th Intra-African Trade Fair, led by Afreximbank with AU and AfCFTA, aims to boost trade and investment across Africa.</p>
+                <h3 class="text-lg text-gray-800 mb-2 font-semibold" data-translation-key="hubOfAfricaTitle">IATF2023</h3>
+                <p class="text-gray-600 mb-4 text-xs leading-relaxed" data-translation-key="hubOfAfricaDesc">IATF2023, the 4th Intra-African Trade Fair, led by Afreximbank with AU and AfCFTA, aims to boost trade and investment across Africa.</p>
                 <div class="flex justify-between items-center text-xs text-gray-500 border-t border-gray-200 pt-3">
                     <div class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" /></svg>
@@ -1918,14 +1926,64 @@ try {
     // Event data for different events, including full descriptions and image URLs
  
 const eventsData = {
-    'hubOfAfrica': {
+    'currentEvent': {
+    title: {
+        en: 'IATF2025',
+        ar: 'المعرض التجاري البيني الإفريقي 2025',
+        zh: '2025年非洲内部贸易博览会',
+        am: 'የአፍሪካ አቀፍ ንግድ ትርዒት 2025',
+        fr: 'Foire commerciale intra-africaine 2025',
+        tr: 'IATF2025'
+    },
+    tag: {
+        en: 'Current',
+        ar: 'حالي',
+        zh: '当前',
+        am: 'አሁን',
+        fr: 'Actuel',
+        tr: 'Mevcut'
+    },
+    date: {
+        en: '4th-10th October 2025',
+        ar: '٤–١٠ أكتوبر ٢٠٢٥',
+        zh: '2025年10月4日至10日',
+        am: 'ኦክቶበር 4–10 ቀን 2025',
+        fr: 'Du 4 au 10 octobre 2025',
+        tr: '4-10 Ekim 2025'
+    },
+    location: {
+        en: 'Algiers, Algeria',
+        ar: 'الجزائر، الجزائر',
+        zh: '阿尔及尔，阿尔及利亚',
+        am: 'አልጀርስ፣ አልጀሪያ',
+        fr: 'Alger, Algérie',
+        tr: 'Cezayir, Cezayir'
+    },
+    fullDescription: {
+        en: `African Export-Import Bank (Afreximbank), in collaboration with African Union Commission and AfCFTA Secretariat, brings you the 4th Intra-African Trade Fair (IATF2025) to be hosted by People’s Democratic Republic of Algeria, in Algiers.\n\nThe AfCFTA is expected to boost intra-African trade significantly over the coming years. Increasing intra-African trade can foster industrialization, promote value addition, create jobs, and enhance competitiveness on the global stage.\n\nIATF2025 will provide a unique and valuable platform for businesses to access an integrated African market of over 1.4 billion people with a GDP of over US$3.5 trillion created under the African Continental Free Trade Area.`,
+        ar: `يقدم بنك أفريقيا للاستيراد والتصدير (Afreximbank)، بالتعاون مع مفوضية الاتحاد الأفريقي وأمانة منطقة التجارة الحرة القارية الأفريقية، النسخة الرابعة من المعرض التجاري البيني الأفريقي (IATF2025)، الذي تستضيفه الجمهورية الديمقراطية الشعبية الجزائرية في الجزائر العاصمة.\n\nمن المتوقع أن تعزز منطقة التجارة الحرة القارية الأفريقية التجارة البينية الإفريقية بشكل كبير خلال السنوات القادمة. يمكن أن يؤدي زيادة التجارة البينية الإفريقية إلى تعزيز التصنيع، وتشجيع القيمة المضافة، وخلق فرص العمل، وزيادة القدرة التنافسية على المستوى العالمي.\n\nسيوفر IATF2025 منصة فريدة وقيمة للشركات للوصول إلى سوق إفريقي متكامل يضم أكثر من 1.4 مليار شخص ويبلغ إجمالي الناتج المحلي أكثر من 3.5 تريليون دولار أمريكي تحت منطقة التجارة الحرة القارية الإفريقية.`,
+        zh: `非洲进出口银行（Afreximbank）携手非洲联盟委员会及非洲大陆自由贸易区秘书处，隆重推出第四届非洲内部贸易博览会（IATF2025），由阿尔及利亚人民民主共和国在阿尔及尔主办。\n\n预计非洲大陆自由贸易区将在未来几年显著促进非洲内部贸易。增加非洲内部贸易可以推动工业化、促进增值、创造就业机会，并提升在全球市场的竞争力。\n\nIATF2025将为企业提供独特且有价值的平台，使其能够进入拥有超过14亿人口、GDP超过3.5万亿美元的整合非洲市场，该市场由非洲大陆自由贸易区创建。`,
+        am: `የአፍሪካ ውጭ እና ውስጥ ንግድ ባንክ (Afreximbank) በአፍሪካ ኅብረት ኮሚሽን እና AfCFTA ጽ/ቤት ጋር በመተባበር አራተኛውን የአፍሪካ ውስጥ ንግድ አውደ ራዕይ (IATF2025) ወደ አልጀርስ፣ በየአልጀሪያ ዴሞክራሲያዊ ሕዝባዊ ሪፐብሊክ እንደሚደረግ ያሳውቃል።\n\nAfCFTA በቀጣይ ዓመታት ውስጥ የአፍሪካ ውስጥ ንግድን በግምት ይጨምራል። የአፍሪካ ውስጥ ንግድ መጨመር ኢንዱስትሪያዊ ልማትን ማካሄድ፣ የዋጋ መያዝን ማስቻል፣ ስራዎችን ፈጠርና በዓለም ገበያ ላይ ችሎታን ማሻሻል ይችላል።\n\nIATF2025 በአንድ የተዋበ እና ዋጋ ያለው መድረክ ላይ ያለውን የአፍሪካ ምድብ ላይ ንግድ ድርጅቶች ለማግኘት ይሰማራል፣ በ14 ቢሊዮን በላይ ሰዎች ያሉበትን እና በ3.5 ትሪሊዮን የሚበልጥ የአፍሪካ ውስጥ ንግድ ገበያ ይጠቀማል።`,
+        fr: `La Banque Africaine d’Import-Export (Afreximbank), en collaboration avec la Commission de l’Union africaine et le Secrétariat de la ZLECAf, vous présente la 4e Foire Commerciale Intra-Africaine (IATF2025) qui sera accueillie par la République démocratique populaire d’Algérie, à Alger.\n\nLa ZLECAf devrait stimuler considérablement le commerce intra-africain au cours des prochaines années. L’augmentation du commerce intra-africain peut favoriser l’industrialisation, promouvoir la valeur ajoutée, créer des emplois et renforcer la compétitivité sur la scène mondiale.\n\nIATF2025 offrira une plateforme unique et précieuse aux entreprises pour accéder à un marché africain intégré de plus de 1,4 milliard de personnes avec un PIB de plus de 3,5 trillions USD créé dans le cadre de la Zone de libre-échange continentale africaine.`,
+        tr: `Afrika İhracat-İthalat Bankası (Afreximbank), Afrika Birliği Komisyonu ve AfCFTA Sekreterliği iş birliğiyle, Cezayir Demokratik Halk Cumhuriyeti'nin ev sahipliğinde düzenlenecek olan 4. Afrika İçi Ticaret Fuarı (IATF2025) sizlere sunuluyor.\n\nAfCFTA'nın önümüzdeki yıllarda Afrika içi ticareti önemli ölçüde artırması bekleniyor. Afrika içi ticaretin artırılması sanayileşmeyi teşvik edebilir, katma değer yaratabilir, istihdam sağlayabilir ve küresel ölçekte rekabetçiliği artırabilir.\n\nIATF2025, işletmelerin Afrika Kıtası Serbest Ticaret Alanı kapsamında oluşturulan 1,4 milyardan fazla nüfusa ve 3,5 trilyon ABD Doları’ndan fazla GSYİH’ye sahip entegre bir Afrika pazarına erişim sağlaması için benzersiz ve değerli bir platform sunacak.`
+    },
+    images: [
+        './currentevent/IMG-20250905-WA0001.jpg',
+         '/currentevent/IMG-20250905-WA0005.jpg',
+        './currentevent/IMG-20250905-WA0003.jpg',
+        './currentevent/IMG-20250905-WA0004.jpg',
+         './currentevent/IMG-20250905-WA0002.jpg',
+        '/currentevent/IMG-20250905-WA0006.jpg'
+    ]
+},
+'hubOfAfrica': {
         title: {
-            en: 'IATF2025',
-            ar: 'المعرض التجاري البيني الإفريقي2025',
-            zh: '2025年非洲内部贸易博览会',
-            am: 'የአፍሪካ አቀፍ ንግድ ትርዒት 2025',
+            en: 'IATF2023',
+            ar: 'المعرض التجاري البيني الإفريقي2023',
+            zh: '2023年非洲内部贸易博览会',
+            am: 'የአፍሪካ አቀፍ ንግድ ትርዒት 2023',
             fr: 'Foire commerciale intra-africaine 2025',
-            tr: 'IATF2025'
+            tr: 'IATF2023'
         },
         date: {
             en: '4th-10th September 2025',
