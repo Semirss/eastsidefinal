@@ -118,41 +118,41 @@ async function sendMessage() {
         return;
     }
 
-    // Build knowledge base context
-    const context = Object.entries(knowledgeBase)
-        .map(([key, value]) => `${key}: ${value}`)
-        .join("\n\n");
-
+    // Build messages array for the API
     const messages = [
-        { role: "system", content: `You are a helpful customer service assistant for EastSide Agro Industry. Use the following information to answer accurately:\n\n${context}` },
+        { 
+            role: "system", 
+            content: `You are a helpful customer service assistant for EastSide Agro Industry, a premium Ethiopian coffee exporter. Use the following information to answer accurately:\n\n${Object.entries(knowledgeBase).map(([key, value]) => `${key}: ${value}`).join("\n\n")}`
+        },
         { role: "user", content: prompt }
     ];
 
     try {
-     const res = await fetch('/api/groq', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages })
-});
+        const res = await fetch('/api/groq', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages })
+        });
 
         hideLoadingIndicator();
 
         if (!res.ok) {
-            const errText = await res.text();
-            console.error('Serverless error:', errText);
-            appendMessage("Sorry, I couldn't get a response. Please try again later.", 'bot');
+            const errorData = await res.json();
+            console.error('API error:', errorData);
+            appendMessage("Sorry, I'm having technical difficulties. Please try again later.", 'bot');
             return;
         }
 
         const data = await res.json();
         const botResponse = data.choices?.[0]?.message?.content || 
-            "I couldn't find an answer. Can I connect you to a human?";
+            "I couldn't generate a response. Please try rephrasing your question.";
+        
         appendMessage(botResponse, 'bot');
 
     } catch (err) {
-        console.error('Error fetching from serverless function:', err);
+        console.error('Fetch error:', err);
         hideLoadingIndicator();
-        appendMessage("I'm having trouble connecting right now. Please try again later.", 'bot');
+        appendMessage("I'm having trouble connecting to the server. Please check your connection and try again.", 'bot');
     }
 }
 
