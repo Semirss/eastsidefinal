@@ -503,6 +503,11 @@
         #navigate-to-events:hover svg {
             transform: translateX(5px);
         }
+         /* Mobile-specific styles */
+        @media (max-width: 439px) {
+            #modalmar {
+                margin-top: -98px;
+            }}
     </style>
 </style>
 <body class="bg-white rounded">
@@ -593,12 +598,12 @@
     <div class="bg-white/50 text-[var(--color-text-dark)] rounded-xl shadow-2xl overflow-hidden max-w-4xl w-11/12 relative transform transition-all duration-500 ease-in-out scale-95 opacity-0 gradient-border flex flex-col md:flex-row">
         
         <div class="relative w-full md:w-1/2 min-h-64 md:min-h-full flex flex-col gap-4 p-4">
-            <img src="./currentevent/IMG-20250905-WA0003.jpg" alt="Event Image" class="w-full block lg:block sm:hidden h-full object-cover rounded-lg">
+            <img src="./currentevent/IMG-20250905-WA0003.jpg" alt="Event Image" class="w-full hidden lg:block sm:hidden h-full object-cover rounded-lg">
             <!-- Video replacing second image -->
             <video src="./currentevent/VID-20250905-WA0001.mp4" class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline></video>
         </div>
 
-        <div class="p-8 md:p-12 w-full md:w-1/2 text-center flex flex-col justify-center items-center relative">
+        <div id="modalmar" class="  p-8 md:p-12 w-full md:w-1/2 text-center flex flex-col justify-center items-center relative">
             <button id="close-event-modal" class="absolute top-4 right-5 text-gray-400 hover:text-[var(--color-text-dark)] text-3xl font-bold transition-colors">&times;</button>
             
             <div class="modal-content2">
